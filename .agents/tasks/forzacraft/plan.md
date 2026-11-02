@@ -31,12 +31,12 @@ Phase order is the user-approved one. Every phase ends with the **DONE CHECK** (
 
 ## Phase 1: core driving + camera, one drivable car
 
-- [ ] 1.1 Scaffold the Forge MDK project.
+- [x] 1.1 Scaffold the Forge MDK project.
       Download `https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.28/forge-1.20.1-47.4.28-mdk.zip`, copy its Gradle wrapper, `build.gradle`, `settings.gradle`, `gradle.properties`, set `mod_id=forzacraft`, `mod_name=Forzacraft`, `mod_group_id=vn.forzacraft`, `mapping_channel=official`, license `All Rights Reserved`; add Mixin (MixinGradle + `forzacraft.mixins.json`), JUnit 5 for `test`, `forge.enabledGameTestNamespaces=forzacraft` in all runs; main class `vn.forzacraft.Forzacraft` with `@Mod`. Add `.gitignore` (build/, run/, .gradle/, out/, *.log, logs/). Add property-gated compat deps from the Modrinth maven (`https://api.modrinth.com/maven`): `-PcompatServer` adds Distant Horizons 3.3.3-1.20.1 (`fg.deobf`), `-PcompatClient` adds DH + Embeddium 0.3.31+mc1.20.1 + Oculus 1.20.1-1.8.0.
       Files: build.gradle, settings.gradle, gradle.properties, gradlew, gradlew.bat, gradle/wrapper/*, .gitignore, src/main/java/vn/forzacraft/Forzacraft.java, src/main/resources/META-INF/mods.toml, src/main/resources/pack.mcmeta, src/main/resources/forzacraft.mixins.json
       Verify: `./gradlew build --no-daemon` succeeds (first run decompiles, allow ~15 min).
 
-- [ ] 1.2 Write `docs/decisions.md` with every decision in the section above (scale with numbers and justification for the refinement, map production/distribution, netcode, renderer vs Q1, language, camera, explosion rule, dimension height, radius vs Q3), plus `docs/scale.md` with the reference table (player 1.8; hatchback 3.9×1.7×1.5; sedan 4.5×1.8×1.45; coupe 4.4×1.9×1.3; pickup 5.3×1.9×1.8; lane 7; 2-lane road 14 + 2×2 shoulder; highway 4 lanes 28 + median 4; dirt track 8–10; storey 6; door opening 3×2; palm 40–56 tall; rice terrace step 2–4 high). Q3 is already registered in `.agents/questions.md` by the planner. Update README with build/test commands.
+- [x] 1.2 Write `docs/decisions.md` with every decision in the section above (scale with numbers and justification for the refinement, map production/distribution, netcode, renderer vs Q1, language, camera, explosion rule, dimension height, radius vs Q3), plus `docs/scale.md` with the reference table (player 1.8; hatchback 3.9×1.7×1.5; sedan 4.5×1.8×1.45; coupe 4.4×1.9×1.3; pickup 5.3×1.9×1.8; lane 7; 2-lane road 14 + 2×2 shoulder; highway 4 lanes 28 + median 4; dirt track 8–10; storey 6; door opening 3×2; palm 40–56 tall; rice terrace step 2–4 high). Q3 is already registered in `.agents/questions.md` by the planner. Update README with build/test commands.
       Files: docs/decisions.md, docs/scale.md, README.md, .agents/questions.md
       Verify: docs render as markdown; `./gradlew build --no-daemon` still passes.
 
