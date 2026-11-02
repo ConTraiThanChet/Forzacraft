@@ -1,0 +1,27 @@
+{
+  "id": "FEAT-005",
+  "type": "feat",
+  "description": "Phase 5: damage model and block-safe explosions, Dirt Racing, Wanted Racing with police bots/heat/bust. Depends on FEAT-004.",
+  "status": "pending",
+  "steps": [
+    "Read .agents/inbox.md, then implement plan.md items 5.1-5.4 in order exactly as written in /projects/sandbox/Forzacraft/.agents/tasks/forzacraft/plan.md (files, behaviour, verification per item).",
+    "After each completed item: run its Verify command, then git add the specific files, commit (conventional message) and git push origin main.",
+    "Any point needing a user decision: append a question to .agents/questions.md, send_message severity 'info', mark the item DEFERRED (Qn) in plan.md, continue with other items.",
+    "Finish with the Phase 5 DONE CHECK: bash tools/ci/done-check.sh (and COMPAT=server bash tools/ci/server-smoke.sh where the plan says so); record command outputs summary, test counts, screenshot paths in findings."
+  ],
+  "acceptance_criteria": [
+    "GameTest: crash damage, explosion at 0 health leaves every block in a 7x7x7 box unchanged and damages nearby entity",
+    "GameTest: 12-car dirt race completes",
+    "GameTest: police pursue, stopped racer busted, heat rises",
+    "police car screenshot viewed; DONE CHECK passes"
+  ],
+  "verification": [
+    "./gradlew build --no-daemon",
+    "./gradlew test --no-daemon",
+    "./gradlew runGameTestServer --no-daemon",
+    "bash tools/ci/server-smoke.sh",
+    "view every new art/screenshots/*.png"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

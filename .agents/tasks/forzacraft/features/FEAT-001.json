@@ -1,0 +1,29 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Phase 1: Forge 1.20.1 project scaffold, decisions docs (scale + prebuilt map production/distribution), verification tooling, pure-Java vehicle physics, hatchback 'Sao Mai' model/texture, vehicle entity with enter/exit/sync/HUD, self-contained geo renderer, mod camera modes (chase/classic/in-car/cinematic).",
+  "status": "pending",
+  "steps": [
+    "Read .agents/inbox.md, then implement plan.md items 1.1-1.9 in order exactly as written in /projects/sandbox/Forzacraft/.agents/tasks/forzacraft/plan.md (files, behaviour, verification per item).",
+    "After each completed item: run its Verify command, then git add the specific files, commit (conventional message) and git push origin main.",
+    "Any point needing a user decision: append a question to .agents/questions.md, send_message severity 'info', mark the item DEFERRED (Qn) in plan.md, continue with other items.",
+    "Finish with the Phase 1 DONE CHECK: bash tools/ci/done-check.sh (and COMPAT=server bash tools/ci/server-smoke.sh where the plan says so); record command outputs summary, test counts, screenshot paths in findings."
+  ],
+  "acceptance_criteria": [
+    "./gradlew build --no-daemon passes on JDK 17",
+    "./gradlew test passes incl. VehicleSimTest, GeoModelLoaderTest, CameraMathTest",
+    "runGameTestServer passes: car settles, drives >20 blocks in 5 s, mount/dismount",
+    "server-smoke exits 0 with and without COMPAT=server (Distant Horizons)",
+    "docs/decisions.md documents scale (x2 environment, refinements justified) and map production/distribution",
+    "Sao Mai screenshots in art/screenshots viewed and sized vs 1.8-block player"
+  ],
+  "verification": [
+    "./gradlew build --no-daemon",
+    "./gradlew test --no-daemon",
+    "./gradlew runGameTestServer --no-daemon",
+    "bash tools/ci/server-smoke.sh",
+    "view every new art/screenshots/*.png"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

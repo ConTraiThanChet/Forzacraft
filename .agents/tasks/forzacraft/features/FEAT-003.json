@@ -1,0 +1,27 @@
+{
+  "id": "FEAT-003",
+  "type": "feat",
+  "description": "Phase 3: race definitions, race session lifecycle (lobby, bot fill to >=12, countdown, checkpoints/laps, results, rewards), bot drivers and car-vs-car OBB collisions, test oval. Depends on FEAT-002.",
+  "status": "pending",
+  "steps": [
+    "Read .agents/inbox.md, then implement plan.md items 3.1-3.4 in order exactly as written in /projects/sandbox/Forzacraft/.agents/tasks/forzacraft/plan.md (files, behaviour, verification per item).",
+    "After each completed item: run its Verify command, then git add the specific files, commit (conventional message) and git push origin main.",
+    "Any point needing a user decision: append a question to .agents/questions.md, send_message severity 'info', mark the item DEFERRED (Qn) in plan.md, continue with other items.",
+    "Finish with the Phase 3 DONE CHECK: bash tools/ci/done-check.sh (and COMPAT=server bash tools/ci/server-smoke.sh where the plan says so); record command outputs summary, test counts, screenshot paths in findings."
+  ],
+  "acceptance_criteria": [
+    "GameTest: 1 player + 11 bots race ends with ordered results and reward credited",
+    "GameTest: 12 bots finish 2 laps, none stuck >10 s",
+    "CollisionTest passes",
+    "DONE CHECK passes"
+  ],
+  "verification": [
+    "./gradlew build --no-daemon",
+    "./gradlew test --no-daemon",
+    "./gradlew runGameTestServer --no-daemon",
+    "bash tools/ci/server-smoke.sh",
+    "view every new art/screenshots/*.png"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "task-forzacraft",
+  "task_description": "Forza Horizon-style Forge 1.20.1 modpack set in a fictional Vietnam, built in the user-approved 7-phase order; every phase ends with the DONE CHECK defined in plan.md.",
+  "status": "pending",
+  "feature_order": [
+    "FEAT-001",
+    "FEAT-002",
+    "FEAT-003",
+    "FEAT-004",
+    "FEAT-005",
+    "FEAT-006",
+    "FEAT-007"
+  ],
+  "blocked_reason": null
+}

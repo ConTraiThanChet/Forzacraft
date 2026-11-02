@@ -1,0 +1,27 @@
+{
+  "id": "FEAT-006",
+  "type": "feat",
+  "description": "Phase 6: Vietnamese plant, object, decoration models and house/structure templates (Blockbench + Aseprite), integrated into map generator placement tables. Depends on FEAT-004; independent of FEAT-005.",
+  "status": "pending",
+  "steps": [
+    "Read .agents/inbox.md, then implement plan.md items 6.1-6.4 in order exactly as written in /projects/sandbox/Forzacraft/.agents/tasks/forzacraft/plan.md (files, behaviour, verification per item).",
+    "After each completed item: run its Verify command, then git add the specific files, commit (conventional message) and git push origin main.",
+    "Any point needing a user decision: append a question to .agents/questions.md, send_message severity 'info', mark the item DEFERRED (Qn) in plan.md, continue with other items.",
+    "Finish with the Phase 6 DONE CHECK: bash tools/ci/done-check.sh (and COMPAT=server bash tools/ci/server-smoke.sh where the plan says so); record command outputs summary, test counts, screenshot paths in findings."
+  ],
+  "acceptance_criteria": [
+    "every model has a viewed screenshot",
+    "GameTest places every block and structure template",
+    "fc map stats still passes",
+    "DONE CHECK passes"
+  ],
+  "verification": [
+    "./gradlew build --no-daemon",
+    "./gradlew test --no-daemon",
+    "./gradlew runGameTestServer --no-daemon",
+    "bash tools/ci/server-smoke.sh",
+    "view every new art/screenshots/*.png"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
